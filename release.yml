@@ -1,0 +1,51 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    name: Build and release
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode.app
+
+      - name: Build archive
+        run: |
+          xcodebuild archive \
+            -scheme duplicate-finder \
+            -configuration Release \
+            -archivePath build/duplicate-finder.xcarchive \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Export app
+        run: |
+          xcodebuild -exportArchive \
+            -archivePath build/duplicate-finder.xcarchive \
+            -exportOptionsPlist ExportOptions.plist \
+            -exportPath build/export
+
+      - name: Create DMG
+        run: |
+          hdiutil create \
+            -volname "duplicate-finder" \
+            -srcfolder build/export/duplicate-finder.app \
+            -ov -format UDZO \
+            build/duplicate-finder.dmg
+
+      - name: Upload release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/duplicate-finder.dmg
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
