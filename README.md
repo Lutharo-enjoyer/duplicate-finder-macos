@@ -42,15 +42,6 @@ No files are deleted without your confirmation. Ever.
 
 All scanning happens on your device. No files, filenames, or metadata ever leave your Mac.
 
-## Contributing
-
-Pull requests welcome. Please open an issue before starting large changes.
-
-```bash
-cd duplicate-finder
-open duplicate-finder.xcodeproj
-```
-
 ## License
 
 MIT
