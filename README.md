@@ -3,7 +3,7 @@
 > Find and delete duplicate files on your Mac — without touching a single terminal command.
 
 <p align="center">
-  <a href="https://YOUR_USERNAME.github.io/duplicate-finder/">
+  <a href="https://Lutharo-enjoyer.github.io/duplicate-finder-macos/">
     <img src="https://img.shields.io/badge/Install-Open%20guide-0071e3?style=for-the-badge&logo=apple&logoColor=white" alt="Install — open installation guide" />
   </a>
 </p>
