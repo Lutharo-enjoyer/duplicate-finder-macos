@@ -33,12 +33,6 @@ Your Mac is full. You open Storage and see "Documents: 48 GB" — but you have n
 
 No files are deleted without your confirmation. Ever.
 
-## Screenshots
-
-| Scan in progress | Results grouped by duplicate |
-|---|---|
-| ![scan](screenshots/scan.png) | ![results](screenshots/results.png) |
-
 ## Requirements
 
 - macOS 13 Ventura or later
